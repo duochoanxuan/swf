@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+
+  <title>THÍCH GAME – Chơi game NES trực tuyến, mượt trên mọi thiết bị</title>
+  <meta name="description" content="Chơi game NES (Nintendo) trực tuyến ngay trên trình duyệt. Danh sách game kinh điển như Contra, Mario, Tank 1990… Điều khiển cảm ứng, âm thanh đầy đủ.">
+  <link rel="canonical" href="https://www.thichgame.com/">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="Thích Game">
+  <meta name="keywords" content="game NES, game cổ điển, chơi game trực tuyến, Contra, Mario, Tank 1990, emulator NES">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Thích Game">
+  <meta property="og:title" content="THÍCH GAME – Chơi game NES trực tuyến">
+  <meta property="og:description" content="Kho game NES cổ điển chạy mượt trên web: Contra, Mario, Tank 1990…">
+  <meta property="og:url" content="https://www.thichgame.com/">
+  <meta property="og:image" content="https://www.thichgame.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="THÍCH GAME – Chơi game NES trực tuyến">
+  <meta name="twitter:description" content="Chơi game NES trên trình duyệt, hỗ trợ cảm ứng và âm thanh.">
+  <meta name="twitter:image" content="https://www.thichgame.com/og-image.jpg">
+  <meta name="theme-color" content="#0e0e0f">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [{
+      "@type": "WebSite",
+      "name": "Thích Game",
+      "url": "https://www.thichgame.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.thichgame.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },{
+      "@type": "Organization",
+      "name": "Thích Game",
+      "url": "https://www.thichgame.com/",
+      "logo": "https://www.thichgame.com/icon.png",
+      "sameAs": []
+    }]
+  }
+  </script>
+
+  <style>
+    :root{
+      color-scheme: dark;
+      --bg1:#0b0c10; --bg2:#0f1117; --card:#0f1220; --card2:#0d1020;
+      --line:#1f2741; --text:#e6eaf0; --muted:#a7b0c0;
+      --brand:#2dd4bf; --brand2:#22d3ee; --ring:#2dd4bf66;
+      --glow:0 20px 50px rgba(0,0,0,.45), 0 8px 18px rgba(0,0,0,.3);
+    }
+    *{box-sizing:border-box}
+    html, body{height:100%}
+    body{
+      margin:0; display:flex; flex-direction:column; min-height:100vh;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(34,211,238,.08), transparent 60%),
+        radial-gradient(1000px 700px at 120% 10%, rgba(45,212,191,.08), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2) 60%, var(--bg1));
+      color:var(--text); font:400 16px/1.5 system-ui, Segoe UI, Roboto, Helvetica, Arial;
+    }
+
+    /* ===== Header / Hero ===== */
+    header{
+      width:100%; padding:18px 16px 0;
+    }
+    .hero{
+      max-width:1100px; margin:0 auto; padding:12px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+      border:1px solid var(--line); border-radius:16px;
+      background:linear-gradient(180deg, #101735, #0c132a 60%, #0b1226);
+      box-shadow: var(--glow);
+    }
+    .brand{display:flex; align-items:center; gap:14px}
+    .logo{
+      width:56px; height:56px; border-radius:14px; overflow:hidden; flex:0 0 auto;
+      box-shadow: var(--glow);
+      display:grid; place-items:center;
+    }
+    .logo img{width:100%; height:100%; object-fit:contain}
+    .title{display:flex; flex-direction:column; line-height:1.15}
+    .title .big{font-weight:800; font-size: clamp(18px, 2.6vw, 28px)}
+    .title .sub{opacity:.85; color:var(--muted); font-size:14px}
+
+    .nav{display:flex; gap:8px; flex-wrap:wrap}
+    .nav a{
+      text-decoration:none; color:var(--text);
+      background:#151a2b; border:1px solid #232b48; padding:8px 12px;
+      border-radius:12px; transition:.18s;
+    }
+    .nav a:hover{transform:translateY(-1px); border-color:#2c3557}
+
+    /* ===== Cards ===== */
+    .main{
+      flex:1; display:grid; place-items:center; padding:18px 16px 28px;
+    }
+    .grid{
+      width:100%; max-width:1100px;
+      display:grid; gap:18px;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+    }
+    @media (max-width:900px){ .grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    @media (max-width:560px){ 
+	.grid{ grid-template-columns: 1fr; } 
+	.hero {display: block;}
+	}
+
+    .card{
+      position:relative; border-radius:18px; padding:18px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
+        linear-gradient(180deg, var(--card), var(--card2));
+      border:1px solid var(--line); box-shadow:var(--glow);
+      isolation:isolate; overflow:hidden; text-decoration:none; color:var(--text);
+      display:flex; align-items:center; gap:16px; min-height:120px;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .card:focus-visible{ outline:3px solid var(--ring); outline-offset:2px; }
+    .card:hover{ transform: translateY(-3px); border-color:#2a365d; background:
+      linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03)),
+      linear-gradient(180deg, #10162b, #0e1426);
+    }
+
+    .card .icon{
+      flex:0 0 auto; width:56px; height:56px; border-radius:14px;
+      display:grid; place-items:center; font-size:28px; font-weight:900;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color:#031a1b; box-shadow:0 10px 22px rgba(0,0,0,.35);
+    }
+    .card .meta{display:flex; flex-direction:column; gap:6px; min-width:0}
+    .card .title{font-weight:900; font-size:20px; letter-spacing:.2px}
+    .card .desc{color:var(--muted); font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+
+    /* subtle sheen */
+    .card::after{
+      content:""; position:absolute; inset:-1px; border-radius:18px;
+      background: radial-gradient(180px 80px at -10% -20%, rgba(255,255,255,.12), transparent 60%),
+                  radial-gradient(180px 80px at 110% 120%, rgba(255,255,255,.06), transparent 60%);
+      pointer-events:none; mix-blend-mode:overlay;
+    }
+
+    /* ===== Footer ===== */
+    footer{ text-align:center; color:var(--muted); padding:10px 0 16px; font-size:13px; }
+
+    /* ===== Reduce motion ===== */
+    @media (prefers-reduced-motion: reduce){
+      .card, .nav a{ transition:none }
+      .card:hover{ transform:none }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero" role="banner">
+      <div class="brand">
+        <div class="logo">
+          <img src="icon.png" alt="Thích Game" loading="eager" decoding="async">
+        </div>
+        <div class="title">
+          <div class="big">WWW.THICHGAME.COM</div>
+          <div class="sub">Chơi ngay trên trình duyệt – mượt, nhẹ, không rườm rà</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="grid" role="list">
+      <a role="listitem" class="card" href="https://play.thichgame.com/nes/" aria-label="Game NES – các game Nintendo cổ điển">
+        <div class="icon">🎮</div>
+        <div class="meta">
+          <div class="title">Game NES</div>
+          <div class="desc">Contra, Mario, Tank 1990…</div>
+        </div>
+      </a>
+
+      <a role="listitem" class="card" href="https://www.thichgame.com/" aria-label="Game HTML5 – chạy mượt trên mọi thiết bị">
+        <div class="icon">🚀</div>
+        <div class="meta">
+          <div class="title">Game HTML5</div>
+          <div class="desc">Vào là chơi, mượt trên mobile</div>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <footer>© <span id="y"></span> Thích Game</footer>
+
+  <script>
+    // Cập nhật năm tự động
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
